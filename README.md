@@ -37,3 +37,130 @@ Implement the MemberService interface and place your implementation in the exist
 
     Implement a method that finds and returns members who registered in 2023 but have not read any books.
 
+### Results
+
+* BookService Implementation
+
+1. URL http://localhost:8080/api/v1/books/statistic
+
+**Response** 
+{
+"Fiction": 13,
+"Non-Fiction": 7,
+"Classic": 4,
+"Adventure": 3,
+"Dystopian": 3,
+"Biography": 3,
+"Romance": 2,
+"Self-Help": 2,
+"Fantasy": 2,
+"Memoir": 1,
+"Horror": 1,
+"History": 1,
+"Thriller": 1,
+"Mystery": 1,
+"Philosophical": 1,
+"Historical": 1
+}
+
+2. URL http://localhost:8080/api/v1/books/search
+
+**RequestBody**
+{
+"author": "J.",
+"year": "1997"
+}
+
+**Response**
+[
+{
+"id": 13,
+"title": "Harry Potter and the Sorcerer's Stone",
+"description": "A young boy discovers he is a wizard.",
+"author": "J.K. Rowling",
+"publicationDate": "1997-06-26T00:00:00",
+"genres": [
+"Adventure",
+"Fantasy"
+]
+}
+]
+
+**RequestBody**
+{
+"genre": "Self-Help"
+}
+
+**Response**
+[
+{
+"id": 22,
+"title": "The Power of Habit",
+"description": "A book about the science of habit formation.",
+"author": "Charles Duhigg",
+"publicationDate": "2012-02-28T00:00:00",
+"genres": [
+"Self-Help",
+"Non-Fiction"
+]
+},
+
+{
+"id": 17,
+"title": "The Road Less Traveled",
+"description": "A book about personal growth and spiritual development.",
+"author": "M. Scott Peck",
+"publicationDate": "1978-01-01T00:00:00",
+"genres": [
+"Self-Help",
+"Non-Fiction"
+]
+}
+]
+
+* MemberService Implementation
+
+1. URL http://localhost:8080/api/v1/members/amateur
+
+**Response**
+{
+"id": 11,
+"name": "Kevin Hart",
+"membershipDate": "2023-04-02T10:45:00",
+"borrowedBooks": [
+{
+"id": 1,
+"title": "The Great Gatsby",
+"description": "A novel about the American dream.",
+"author": "F. Scott Fitzgerald",
+"publicationDate": "1925-04-10T00:00:00",
+"genres": [
+"Classic",
+"Fiction"
+]
+},
+{
+"id": 7,
+"title": "Pride and Prejudice",
+"description": "A romantic novel about manners.",
+"author": "Jane Austen",
+"publicationDate": "1813-01-28T00:00:00",
+"genres": [
+"Romance",
+"Fiction"
+]
+}
+]
+}
+
+2. URL http://localhost:8080/api/v1/members
+
+**Response**
+[
+{
+"id": 19,
+"name": "Steve Rogers",
+"membershipDate": "2023-10-11T13:20:00",
+"borrowedBooks": []
+}
+]
